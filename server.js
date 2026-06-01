@@ -1,17 +1,19 @@
 import express from "express";
 import nodemailer from "nodemailer";
 import cors from "cors";
+import path from "path";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(process.cwd())));
 
 // EMAIL BEÁLLÍTÁS
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "luxurystay26@gmail.com",
-    pass: "hoguqawcttcrxuaz" // <-- SZÓKÖZ NÉLKÜL!
+    pass: "hoguqawcttcrxuaz"
   }
 });
 
@@ -58,7 +60,7 @@ ${message}
     `
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
+  transporter.sendMail(mailOptions, (error) => {
     if (error) {
       console.log(error);
       return res.status(500).json({ success: false, message: "Hiba történt az üzenet küldésekor." });
@@ -67,17 +69,11 @@ ${message}
   });
 });
 
-// SZERVER INDÍTÁSA
-app.listen(3000, () => console.log("Szerver fut a 3000-es porton"));
-const express = require("express");
-const path = require("path");
-const app = express();
-
-app.use(express.static(path.join(__dirname)));
-
+// FŐOLDAL KISZOLGÁLÁSA
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(process.cwd(), "index.html"));
 });
 
+// SZERVER INDÍTÁSA
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Szerver fut a ${PORT}-es porton`));
