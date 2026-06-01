@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Szolgáltatások – Luxury Stay</title>
+  <link rel="stylesheet" href="stilus.css">
+  <script src="prices.js"></script>
+
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">Luxury Stay</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Kezdőlap</a></li>
+        <li><a href="rolunk.html">Rólunk</a></li>
+        <li><a href="szolgaltatasok.html" class="active">Szolgáltatások</a></li>
+        <li><a href="fotogaleria.html">Fotógaléria</a></li>
+        <li><a href="arlista.html">Árlista</a></li>
+        <li><a href="foglalas.html">Foglalás</a></li>
+        <li><a href="kapcsolat.html">Kapcsolat</a></li>
+        <li id="admin" style="display:none;"><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  if (localStorage.getItem("isAdmin") === "true") {
+    document.getElementById("admin").style.display = "inline-block";
+  }
+</script>
+
+<div class="services-wrapper">
+  <h1 class="services-title">Szolgáltatásaink & Csomagjaink</h1>
+
+  <div class="services-container">
+
+    <!-- Ultimate Hardcore -->
+    <div class="service-card">
+      <h2>💀 Ultimate Hardcore</h2>
+      <p class="service-price">3 990 Ft / éj</p>
+      <ul>
+        <li>Semmi. Tényleg semmi.</li>
+        <li>Hozol mindent magadnak.</li>
+        <li>Ha esik, hát esik.</li>
+        <li>Ha fázol, hát fázol.</li>
+        <li>Viszont olcsó.</li>
+      </ul>
+    </div>
+
+    <!-- Hardcore -->
+    <div class="service-card">
+      <h2>🔥 Hardcore</h2>
+      <p class="service-price">7 990 Ft / éj</p>
+      <ul>
+        <li>Alap sátorhely</li>
+        <li>Közös mosdó használat</li>
+        <li>Ivóvíz vételezési pont</li>
+        <li>Recepción: TV + Xbox</li>
+        <li>Büfé és kisbolt elérhető</li>
+      </ul>
+    </div>
+
+    <!-- Normál -->
+    <div class="service-card">
+      <h2>⭐ Normál</h2>
+      <p class="service-price">12 990 Ft / éj</p>
+      <ul>
+        <li>Ivóvíz + napi étkezési csomag</li>
+        <li>Áramvételi lehetőség</li>
+        <li>Recepción: TV, Xbox, társasjátékok</li>
+        <li>Bolt + büfé kedvezményes árakkal</li>
+        <li>Alap ágynemű biztosítva</li>
+      </ul>
+    </div>
+
+    <!-- Prémium -->
+    <div class="service-card">
+      <h2>👑 Prémium</h2>
+      <p class="service-price">19 990 Ft / éj</p>
+      <ul>
+        <li>Saját glamping sátor</li>
+        <li>Prémium ágynemű + törölköző</li>
+        <li>Mini hűtő + kávégép</li>
+        <li>Recepción: Xbox, TV, lounge részleg</li>
+        <li>Bolt + büfé VIP kedvezmények</li>
+      </ul>
+    </div>
+
+    <!-- Ultra Deluxe -->
+    <div class="service-card">
+      <h2>🏆 Ultra Deluxe</h2>
+      <p class="service-price">29 990 Ft / éj</p>
+      <ul>
+        <li>Privát glamping lakosztály</li>
+        <li>Reggeli + vacsora a sátorhoz szállítva</li>
+        <li>Privát terasz + hangulatvilágítás</li>
+        <li>Recepción: VIP lounge, Xbox, TV, masszázsfotel</li>
+        <li>Ingyenes büfé + bolt kuponok</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+</body>
+<script src="prices.js"></script>
+<script>
+function updateTotal() {
+  const pack = document.querySelector('input[name="package"]:checked')?.value;
+  const guests = parseInt(document.getElementById("guests").value) || 1;
+  const arrival = new Date(document.getElementById("arrival").value);
+  const departure = new Date(document.getElementById("departure").value);
+
+  if (!pack || isNaN(arrival) || isNaN(departure)) {
+    document.getElementById("totalPrice").innerText = "Végösszeg: –";
+    return;
+  }
+
+  // Éjszakák száma
+  const nights = Math.max(1, Math.ceil((departure - arrival) / (1000 * 60 * 60 * 24)));
+
+  // Alapár + vendégek + éjszakák
+  const base = prices[pack];
+  const total = base + (guests - 1) * 3000 + (nights - 1) * 2000;
+
+  document.getElementById("totalPrice").innerText =
+    `Végösszeg: ${total.toLocaleString("hu-HU")} Ft (${guests} fő, ${nights} éj)`;
+}
+
+// Frissítés eseményekre
+document.querySelectorAll('input[name="package"]').forEach(r => r.addEventListener("change", updateTotal));
+document.getElementById("guests").addEventListener("input", updateTotal);
+document.getElementById("arrival").addEventListener("change", updateTotal);
+document.getElementById("departure").addEventListener("change", updateTotal);
+
+// URL‑paraméter alapján előválasztás
+const params = new URLSearchParams(window.location.search);
+const selectedPackage = params.get("package");
+if (selectedPackage) {
+  const radio = document.querySelector(`input[value="${selectedPackage}"]`);
+  if (radio) radio.checked = true;
+  updateTotal();
+}
+</script>
+<footer>
+    <p>© 2026 Luxury Stay – Minden jog fenntartva.</p>
+  </footer>
+</html>

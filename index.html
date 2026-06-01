@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>LuxuryStayMecsek.com</title>
+  <link rel="stylesheet" href="stilus.css">
+</head>
+<body>
+<!-- Fejléc -->
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">Luxury Stay</div>
+    <nav class="nav">
+      <ul>
+
+        <!-- Admin menüpont (alapból rejtve) -->
+        <li id="admin" style="display: none;"><a href="admin.html">Admin</a></li>
+
+        <li><a href="#">Kezdőlap</a></li>
+        <li><a href="rolunk.html">Rólunk</a></li>
+        <li><a href="szolgaltatasok.html">Szolgáltatások</a></li>
+        <li><a href="fotogaleria.html">Fotógaléria</a></li>
+        <li><a href="arlista.html">Árlista</a></li>
+        <li><a href="foglalas.html">Foglalás</a></li>
+        <li><a href="kapcsolat.html">Kapcsolat</a></li>
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  if (localStorage.getItem("isAdmin") === "true") {
+    document.getElementById("admin").style.display = "inline-block";
+  }
+</script>
+
+
+      </nav>
+    </div>
+    <script>
+if (localStorage.getItem("isAdmin") === "true") {
+  document.getElementById("admin").style.display = "inline-block";
+}
+</script>
+
+  </header>
+
+
+  <!-- Fő tartalom -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-text">
+        <h1>Kempingezés a természet ölelésében</h1>
+        <p>Üdvözöllek a Luxury Stay camping oldalán!</p>
+        <a href="kapcsolat.html" class="contact-btn">Lépj velünk kapcsolatba</a>
+      </div>
+<div class="hero-image">
+  <img src="kepek/8.webp" alt="Kempingházak">
+</div>
+  </section>
+</body>
+
+<!-- TERMÉSZETKÖZELI SZEKCIÓ -->
+<section class="nature-section">
+  <div class="container nature-container">
+
+    <div class="nature-image">
+      <img src="kepek/kep 1.jpeg" alt="Erdő ösvény">
+    </div>
+
+    <div class="nature-text">
+      <h2>Természetközeli kikapcsolódás a kempingünkben</h2>
+      <p>
+        A kempingünk azoknak kínál tökéletes lehetőséget, akik szeretik a természet
+        közelségét, és a nyugodt, csendes környezetet.
+      </p>
+      <a href="fotogaleria.html" class="more-link">További képek →</a>
+    </div>
+
+  </div>
+</section>
+<!-- KELLEMES KÖRNYEZETBEN VALÓ KIKAPCSOLÓDÁS SZEKCIÓ -->
+<section class="relax-section">
+  <div class="container relax-container">
+
+    <div class="relax-text">
+      <h2>Kellemes környezetben való kikapcsolódás</h2>
+      <ul>
+        <li>Természetbarát sátorozás</li>
+        <li>Szabadtéri főzés lehetősége</li>
+        <li>Kirándulási útvonalak ajánlása</li>
+      </ul>
+      <a href="#" class="more-link light">További szolgáltatások →</a>
+    </div>
+
+    <div class="relax-image">
+      <img src="kepek/2.webp" alt="Faház belső tere">
+    </div>
+
+  </div>
+</section>
+<!-- TERMÉSZETES KEMPINGÉLMÉNYEK UTÁNI SZEKCIÓ -->
+<section class="about-section">
+  <div class="container about-container">
+    <div class="about-text">
+      <h2>Miért válaszd a Luxury Stay Mecseket?</h2>
+      <p>
+        A Mecsek szívében található Luxury Stay kemping tökéletes választás azoknak,
+        akik szeretnének kiszakadni a városi nyüzsgésből, és a természetben feltöltődni.
+        Hangulatos faházaink, modern szolgáltatásaink és a környék lenyűgöző túraútvonalai
+        garantálják a teljes kikapcsolódást.
+      </p>
+      <ul>
+        <li>🌿 Csendes, természetközeli környezet</li>
+        <li>🔥 Szabadtéri grillezés és tábortűz lehetősége</li>
+        <li>🚶 Túraútvonalak közvetlenül a kempingből</li>
+        <li>🏡 Kényelmes, jól felszerelt faházak</li>
+      </ul>
+      <a href="#" class="more-link">Tudj meg többet →</a>
+    </div>
+
+    <div class="about-image">
+      <img src="kepek/5.webp" alt="Kemping kép">
+    </div>
+  </div>
+</section>
+
+<!-- KAPCSOLAT + TÉRKÉP -->
+<section class="contact-section">
+  <div class="container contact-container">
+    <div class="contact-text">
+      <h2>Lépj velünk kapcsolatba</h2>
+      <p>
+        Ha kérdésed van, vagy szeretnél időpontot foglalni, vedd fel velünk a kapcsolatot!
+        Örömmel segítünk minden érdeklődőnek.
+      </p>
+      <ul>
+        <li>📍 Cím: Mecsek, Magyarország</li>
+        <li>📞 Telefon: +36 30 123 4567</li>
+        <li>✉️ Email: info@luxurystaymecsek.com</li>
+      </ul>
+      <a href="#" class="more-link">Kapcsolatfelvétel →</a>
+    </div>
+
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2748.857693021726!2d18.175!3d46.085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4742b1b9c3b1e3b1%3A0x400c4290c1e3b1!2sK%C5%91v%C3%A1g%C3%B3sz%C5%91l%C5%91s%2C%20Mecsek!5e0!3m2!1shu!2shu!4v1680000000000!5m2!1shu!2shu"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- VÉLEMÉNYEZŐ SZEKCIÓ -->
+<section class="review-section">
+  <div class="container review-container">
+    <h2>Írd meg a véleményed!</h2>
+    <p>Oszd meg tapasztalataidat a Luxury Stay Mecsek kempingről, és értékeld 1–5 csillaggal!</p>
+
+    <form class="review-form" id="reviewForm">
+      <label for="name">Név:</label>
+      <input type="text" id="name" name="name" placeholder="Add meg a neved" required>
+
+      <label for="message">Vélemény:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Írd ide a véleményed..." required></textarea>
+
+      <label>Értékelés:</label>
+      <div class="stars">
+        <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+        <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+        <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+        <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+        <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+      </div>
+
+      <button type="submit" class="btn">Vélemény elküldése</button>
+    </form>
+
+    <div class="review-box" id="reviewBox">
+      <h3>Kempingezőink véleményei</h3>
+      <div id="reviews"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+// --- Vélemény beküldése ---
+document.getElementById("reviewForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const message = document.getElementById("message").value;
+  const rating = document.querySelector('input[name="rating"]:checked')?.value || 0;
+  const date = new Date().toLocaleDateString("hu-HU");
+
+  const review = { name, message, rating, date };
+
+  const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+  reviews.push(review);
+  localStorage.setItem("reviews", JSON.stringify(reviews));
+
+  renderReviews();
+  document.getElementById("reviewForm").reset();
+});
+
+// --- Vélemények kirajzolása ---
+function renderReviews() {
+  const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+  const reviewsContainer = document.getElementById("reviews");
+  const isAdmin = localStorage.getItem("isAdmin") === "true";
+
+  reviewsContainer.innerHTML = "";
+
+  reviews.forEach((r, index) => {
+    const reviewHTML = `
+      <div class="review-item">
+        <div class="review-bubble">
+          ${isAdmin ? `<button class="delete-review" data-index="${index}">✖</button>` : ""}
+          <div class="review-name"><strong>Név:</strong> ${r.name}</div>
+          <div class="review-stars">${"★".repeat(r.rating)}</div>
+          <div class="review-text">${r.message}</div>
+          <div class="review-date">${r.date}</div>
+        </div>
+      </div>
+    `;
+    reviewsContainer.innerHTML += reviewHTML;
+  });
+
+  // Törlés funkció csak adminnak
+  if (isAdmin) {
+    document.querySelectorAll(".delete-review").forEach(btn => {
+      btn.addEventListener("click", function() {
+        const index = this.getAttribute("data-index");
+
+        const deletedReview = {
+          name: reviews[index].name,
+          message: reviews[index].message,
+          rating: reviews[index].rating,
+          originalDate: reviews[index].date,
+          deletedAt: new Date().toLocaleString("hu-HU")
+        };
+
+        const deleted = JSON.parse(localStorage.getItem("deletedReviews")) || [];
+        deleted.push(deletedReview);
+        localStorage.setItem("deletedReviews", JSON.stringify(deleted));
+
+        reviews.splice(index, 1);
+        localStorage.setItem("reviews", JSON.stringify(reviews));
+
+        renderReviews();
+      });
+    });
+  }
+}
+
+// oldal betöltéskor
+window.addEventListener("load", renderReviews);
+</script>
+
+<!-- COOKIE BANNER HTML -->
+<div id="cookieConsent" class="cookie-consent">
+  <div class="cookie-box">
+    <h3>Sütik használata</h3>
+    <p>Az oldal sütiket használ a működéshez és a jobb felhasználói élmény érdekében. Kérjük, válaszd ki, mely sütiket engedélyezed.</p>
+
+    <div class="cookie-options">
+      <label>
+        <input type="checkbox" checked disabled>
+        Szükséges sütik (kötelező)
+      </label>
+
+      <label>
+        <input type="checkbox" id="analyticsCookies">
+        Statisztikai sütik (pl. Google Analytics)
+      </label>
+
+      <label>
+        <input type="checkbox" id="marketingCookies">
+        Marketing sütik (pl. Facebook Pixel)
+      </label>
+    </div>
+
+    <div class="cookie-buttons">
+      <button id="acceptAll" class="cookie-btn accept">Összes elfogadása</button>
+      <button id="saveCookies" class="cookie-btn save">Beállítások mentése</button>
+      <button id="rejectAll" class="cookie-btn reject">Elutasítás</button>
+    </div>
+
+    <a href="adatvedelem.html" class="cookie-link">Adatvédelmi tájékoztató</a>
+  </div>
+</div>
+
+<script>
+// Ha már elfogadta, ne jelenjen meg
+if (localStorage.getItem("cookieSettings")) {
+  document.getElementById("cookieConsent").style.display = "none";
+}
+
+// Összes elfogadása
+document.getElementById("acceptAll").addEventListener("click", function() {
+  const settings = {
+    analytics: true,
+    marketing: true
+  };
+  localStorage.setItem("cookieSettings", JSON.stringify(settings));
+  document.getElementById("cookieConsent").style.display = "none";
+});
+
+// Elutasítás
+document.getElementById("rejectAll").addEventListener("click", function() {
+  const settings = {
+    analytics: false,
+    marketing: false
+  };
+  localStorage.setItem("cookieSettings", JSON.stringify(settings));
+  document.getElementById("cookieConsent").style.display = "none";
+});
+
+// Beállítások mentése
+document.getElementById("saveCookies").addEventListener("click", function() {
+  const settings = {
+    analytics: document.getElementById("analyticsCookies").checked,
+    marketing: document.getElementById("marketingCookies").checked
+  };
+  localStorage.setItem("cookieSettings", JSON.stringify(settings));
+  document.getElementById("cookieConsent").style.display = "none";
+});
+
+// --- Itt tudsz sütiket betölteni, ha engedélyezve vannak ---
+const saved = JSON.parse(localStorage.getItem("cookieSettings") || "{}");
+
+if (saved.analytics) {
+  // Google Analytics script helye
+}
+
+if (saved.marketing) {
+  // Facebook Pixel script helye
+}
+</script>
+<footer>
+    <p>© 2026 Luxury Stay – Minden jog fenntartva.</p>
+  </footer>

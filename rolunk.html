@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Rólunk – Luxury Stay</title>
+  <link rel="stylesheet" href="stilus.css">
+
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #f7f1e9;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .about-container {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 20px;
+      background: #2a2a2a;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .about-title {
+      font-size: 36px;
+      color: #f0c48a;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .about-text {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #e8e0d4;
+      text-align: justify;
+    }
+
+    .about-highlight {
+      color: #f0c48a;
+      font-weight: bold;
+    }
+
+    .about-image {
+      width: 100%;
+      border-radius: 12px;
+      margin: 25px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Fejléc (ugyanaz mint a főoldalon) -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">Luxury Stay</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Kezdőlap</a></li>
+          <li><a href="rolunk.html" class="active">Rólunk</a></li>
+          <li><a href="szolgaltatasok.html">Szolgáltatások</a></li>
+          <li><a href="fotogaleria.html">Fotógaléria</a></li>
+          <li><a href="arlista.html">Árlista</a></li>
+          <li><a href="foglalas.html">Foglalás</a></li>
+          <li><a href="kapcsolat.html">Kapcsolat</a></li>
+
+          <!-- Admin fül -->
+          <li id="admin" style="display:none;"><a href="admin.html">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    if (localStorage.getItem("isAdmin") === "true") {
+      document.getElementById("admin").style.display = "inline-block";
+    }
+  </script>
+
+  <div class="about-container">
+  <div class="about-content">
+    <div class="about-textbox">
+<h1 class="about-title">Rólunk</h1>
+
+<p class="about-text">
+A <span class="about-highlight">Luxury Stay</span> története 2025-ben kezdődött egy egyszerű, de erős álommal: 
+megteremteni azt a helyet, ahol a természet, a kényelem és az emberi kapcsolatok harmóniában élnek. 
+Nem csupán egy szálláshelyet akartunk létrehozni, hanem egy közösséget, ahol minden vendég otthonra talál.
+</p>
+
+<p class="about-text">
+Az első pillanattól kezdve célunk az volt, hogy a <span class="about-highlight">minőség</span> és a 
+<span class="about-highlight">vendégszeretet</span> ne csak szavak legyenek, hanem élmények, amiket mindenki átélhet. 
+Minden részletet gondosan megterveztünk – a meleg fényeket, a természetes anyagokat, a nyugodt környezetet – 
+hogy aki belép, az érezze: itt megáll az idő, és csak a béke marad.
+</p>
+
+<p class="about-text">
+A <span class="about-highlight">Luxury Stay</span> nem csupán egy projekt, hanem egy család. 
+Minden vendégünk része ennek a történetnek, és minden mosoly, minden élmény, minden visszatérés 
+hozzátesz valamit ahhoz, amit együtt építünk. 
+Hiszünk abban, hogy a valódi luxus nem a fényűzésben, hanem az őszinte figyelemben és a közös pillanatokban rejlik.
+</p>
+
+<p class="about-text">
+Ha ellátogatsz hozzánk, nem csak egy helyet találsz, hanem egy érzést – 
+egy közösséget, ahol a természet, a nyugalom és az emberi melegség találkozik. 
+Itt nem vendég vagy, hanem <span class="about-highlight">a Luxury Stay család tagja</span>.
+</p>
+
+    <div class="about-imagebox">
+      <img src="kepek/10.webp" alt="Luxury Stay – Glamping" class="about-image">
+      <p class="image-caption">Luxury Stay – Természetközeli élmény minden pillanatban</p>
+
+      <p class="image-caption">© 2026 Luxury Stay – Minden jog fenntartva.</p>
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+

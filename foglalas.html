@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Foglalás – Luxury Stay</title>
+  <link rel="stylesheet" href="stilus.css">
+  <script src="prices.js"></script>
+
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">Luxury Stay</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Kezdőlap</a></li>
+        <li><a href="rolunk.html">Rólunk</a></li>
+        <li><a href="szolgaltatasok.html">Szolgáltatások</a></li>
+        <li><a href="fotogaleria.html">Fotógaléria</a></li>
+        <li><a href="arlista.html">Árlista</a></li>
+        <li><a href="foglalas.html" class="active">Foglalás</a></li>
+        <li><a href="kapcsolat.html">Kapcsolat</a></li>
+        <li id="admin" style="display:none;"><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  if (localStorage.getItem("isAdmin") === "true") {
+    document.getElementById("admin").style.display = "inline-block";
+  }
+</script>
+<div class="booking-wrapper">
+  <h1 class="booking-title">Foglalás</h1>
+
+  <form id="bookingForm" class="booking-form">
+
+    <label>Név:</label>
+    <input type="text" id="name" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+<label>Telefonszám</label>
+    <input type="text" id="telefonszam" required>
+    <label>Érkezés dátuma:</label>
+    <input type="date" id="arrival" required>
+
+    <label>Távozás dátuma:</label>
+    <input type="date" id="departure" required>
+<label>Hány főre szeretnél foglalni?</label>
+<input type="number" id="guests" min="1" value="1">
+
+    <label>Válassz csomagot:</label>
+
+    <div class="package-options">
+      <label><input type="radio" name="package" value="ultimate"> 💀 Ultimate Hardcore</label>
+      <label><input type="radio" name="package" value="hardcore"> 🔥 Hardcore</label>
+      <label><input type="radio" name="package" value="normal"> ⭐ Normál</label>
+      <label><input type="radio" name="package" value="premium"> 👑 Prémium</label>
+      <label><input type="radio" name="package" value="ultra"> 🏆 Ultra Deluxe</label>
+    </div>
+    <div class="total-price" id="totalPrice">Végösszeg: –</div>
+
+<div class="back-to-services-inline">
+  <a href="szolgaltatasok.html">← Vissza a csomagokhoz</a>
+</div>
+    <button type="submit" class="booking-btn">Foglalás leadása</button>
+
+  </form>
+
+  <p id="bookingResult" class="booking-result"></p>
+
+</div>
+
+<script src="prices.js"></script>
+<script>
+// --- Automatikus csomag kiválasztás URL alapján ---
+const params = new URLSearchParams(window.location.search);
+const selectedPackage = params.get("package");
+
+if (selectedPackage) {
+  const radio = document.querySelector(`input[value="${selectedPackage}"]`);
+  if (radio) radio.checked = true;
+}
+
+// --- Végösszeg számítása ---
+function updateTotal() {
+  const pack = document.querySelector('input[name="package"]:checked')?.value;
+  const guests = parseInt(document.getElementById("guests").value) || 1;
+
+  const arrivalDate = document.getElementById("arrival").value;
+  const departureDate = document.getElementById("departure").value;
+
+  if (!pack || !arrivalDate || !departureDate) {
+    document.getElementById("totalPrice").innerText = "Végösszeg: –";
+    return;
+  }
+
+  const arrival = new Date(arrivalDate);
+  const departure = new Date(departureDate);
+
+  // Éjszakák száma
+  const nights = Math.max(1, Math.ceil((departure - arrival) / (1000 * 60 * 60 * 24)));
+
+  // Alapár a prices.js alapján
+  const basePrice = prices[pack];
+
+  // Vendégek + éjszakák felára
+  const guestExtra = (guests - 1) * 3000;
+  const nightExtra = (nights - 1) * 2000;
+
+  const total = basePrice + guestExtra + nightExtra;
+
+  document.getElementById("totalPrice").innerText =
+    `Végösszeg: ${total.toLocaleString("hu-HU")} Ft (${guests} fő, ${nights} éj)`;
+}
+
+// --- Eseményfigyelők ---
+document.querySelectorAll('input[name="package"]').forEach(radio => {
+  radio.addEventListener("change", updateTotal);
+});
+document.getElementById("guests").addEventListener("input", updateTotal);
+document.getElementById("arrival").addEventListener("change", updateTotal);
+document.getElementById("departure").addEventListener("change", updateTotal);
+
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const arrival = document.getElementById("arrival").value;
+  const departure = document.getElementById("departure").value;
+  const guests = document.getElementById("guests").value;
+  const pack = document.querySelector('input[name="package"]:checked')?.value;
+
+  if (!pack) {
+    alert("Kérlek válassz csomagot!");
+    return;
+  }
+
+  // Végösszeg kiszedése a DOM-ból
+  const totalText = document.getElementById("totalPrice").innerText;
+  const total = parseInt(totalText.replace(/\D/g, "")); // csak számok
+
+  // 🔥 EZ A LÉNYEG: elküldi a szervernek
+  fetch("http://localhost:3000/foglalas", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name,
+      email,
+      arrival,
+      departure,
+      guests,
+      pack,
+      total
+    })
+  });
+
+  document.getElementById("bookingResult").innerText =
+    `Köszönjük, ${name}! A foglalásodat rögzítettük (${pack} csomag, ${guests} fő).`;
+});
+
+
+// Első frissítés
+updateTotal();
+</script>
+
+
+</body>
+<footer>
+    <p>© 2026 Luxury Stay – Minden jog fenntartva.</p>
+  </footer>
+</html>

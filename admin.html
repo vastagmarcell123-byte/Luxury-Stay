@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>Admin felület</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #f7f1e9;
+    padding: 2rem;
+  }
+  h1 {
+    color: #f0c48a;
+  }
+  .deleted-comments {
+    background-color: #2a2a2a;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+  <h1>Admin felület</h1>
+  <p>Itt láthatod a törölt kommenteket és egyéb statisztikákat.</p>
+
+  <div class="deleted-comments" id="deletedComments">
+    <h2>Törölt kommentek</h2>
+    <ul id="deletedList"></ul>
+  </div>
+
+<ul id="deletedList"></ul>
+
+<script>
+if (localStorage.getItem("isAdmin") !== "true") {
+  alert("Nincs jogosultságod az admin felület megtekintéséhez.");
+  window.location.href = "index.html";
+}
+
+const deleted = JSON.parse(localStorage.getItem("deletedReviews")) || [];
+const list = document.getElementById("deletedList");
+
+if (deleted.length === 0) {
+  list.innerHTML = "<li>Nincsenek törölt kommentek.</li>";
+} else {
+  deleted.forEach((r, index) => {
+    const li = document.createElement("li");
+    li.style.marginBottom = "20px";
+    li.style.padding = "15px";
+    li.style.background = "#2a2a2a";
+    li.style.borderRadius = "10px";
+    li.style.position = "relative";
+
+    li.innerHTML = `
+      <strong>${r.name}</strong> – ${r.rating} ★<br>
+      <em>Eredeti dátum:</em> ${r.originalDate}<br>
+      <em>Törölve:</em> ${r.deletedAt}<br>
+      <div style="margin-top:8px;">${r.message}</div>
+
+      <button class="restore-btn" data-index="${index}"
+        style="
+          position:absolute;
+          right:10px;
+          top:10px;
+          background:#b32626;
+          color:white;
+          border:none;
+          padding:5px 10px;
+          border-radius:6px;
+          cursor:pointer;
+          font-weight:bold;
+        ">
+        Visszaállítás
+      </button>
+    `;
+
+    list.appendChild(li);
+  });
+}
+
+// --- Visszaállítás funkció ---
+document.querySelectorAll(".restore-btn").forEach(btn => {
+  btn.addEventListener("click", function() {
+    const index = this.getAttribute("data-index");
+
+    const deleted = JSON.parse(localStorage.getItem("deletedReviews")) || [];
+    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    // visszaállítandó komment
+    const restored = deleted[index];
+
+    // visszarakjuk a normál kommentek közé
+    reviews.push({
+      name: restored.name,
+      message: restored.message,
+      rating: restored.rating,
+      date: restored.originalDate
+    });
+
+    // töröljük a törölt listából
+    deleted.splice(index, 1);
+
+    // mentés
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+    localStorage.setItem("deletedReviews", JSON.stringify(deleted));
+
+    // frissítés
+    location.reload();
+  });
+});
+</script>
+
+</body>
+<footer>
+    <p>© 2026 Luxury Stay – Minden jog fenntartva.</p>
+  </footer>
+</html>

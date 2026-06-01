@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapcsolat – Luxury Stay</title>
+  <link rel="stylesheet" href="stilus.css">
+</head>
+
+<body>
+
+  <!-- NAVIGÁCIÓ / FEJLÉC (ugyanaz mint a foglalás oldalon) -->
+ <header>
+  <nav class="navbar">
+    <div class="logo">Luxury Stay</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Főoldal</a></li>
+      <li><a href="rolunk.html">Rólunk</a></li>
+      <li><a href="szolgaltatasok.html">Szolgáltatások</a></li>
+      <li><a href="fotogaleria.html">Fotógaléria</a></li>
+      <li><a href="arlista.html">Árlista</a></li>
+      <li><a href="foglalas.html">Foglalás</a></li>
+      <li><a href="kapcsolat.html" class="active">Kapcsolat</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+  <!-- FŐ CÍM -->
+  <section class="booking-header">
+    <h1>Lépj velünk kapcsolatba</h1>
+    <p>Írj nekünk bátran bármilyen kérdéssel vagy kéréssel.</p>
+  </section>
+
+  <!-- KAPCSOLAT FORM -->
+  <section class="booking-section">
+    <div class="booking-container">
+
+      <h2>Üzenet küldése</h2>
+
+      <form id="contactForm">
+
+        <label for="name">Név</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <label for="message">Üzenet</label>
+        <textarea id="message" rows="5" required></textarea>
+
+        <button type="submit" class="booking-btn">Üzenet elküldése</button>
+
+      </form>
+
+      <p id="contactResult" class="result-text"></p>
+
+    </div>
+  </section>
+
+  <!-- LÁBLÉC (ugyanaz mint a foglalás oldalon) -->
+  <footer>
+    <p>© 2026 Luxury Stay – Minden jog fenntartva.</p>
+  </footer>
+
+  <script>
+  document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const response = await fetch("http://localhost:3000/kapcsolat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name, email, message })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      document.getElementById("contactResult").innerText =
+        `Köszönjük, ${name}! Üzenetedet megkaptuk.`;
+    } else {
+      document.getElementById("contactResult").innerText =
+        "Hiba történt az üzenet küldésekor.";
+    }
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1234 @@
+/* Alapbeállítások */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7f1e9;
+  color: #333;
+}
+
+/* Konténer */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Fejléc */
+.header {
+  background-color: #fff;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #b68a6b;
+}
+
+/* Hero szekció */
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+@media (max-width: 900px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.hero {
+  background-color: #f7f1e9;
+  padding: 5rem 0;
+  margin: 0;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: #b68a6b;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #b68a6b;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 5px;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #a57857;
+  transform: translateY(-2px);
+}
+
+/* Kép */
+.hero-image img {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Reszponzív */
+@media (max-width: 900px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-top: 2rem;
+  }
+}
+
+/* ============================
+   TERMÉSZETKÖZELI SZEKCIÓ
+============================ */
+
+.nature-section {
+  background-color: #f7f1e9;
+  padding: 6rem 0;
+  margin-top: 0;
+}
+
+.nature-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nature-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.nature-text h2 {
+  font-size: 2rem;
+  color: #b68a6b;
+  margin-bottom: 1rem;
+}
+
+.nature-text p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+.nature-section .more-link {
+  color: #8b5e3c !important;
+}
+.more-link {
+  color: #8b5e3c;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.more-link:hover {
+  color: #756355;
+  text-decoration: underline;
+}
+
+.more-link:hover {
+  text-decoration: underline;
+}
+
+/* Reszponzív */
+@media (max-width: 900px) {
+  .nature-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .nature-image {
+    order: -1;
+  }
+}
+
+
+/* ============================
+   KELLEMES KÖRNYEZET SZEKCIÓ
+============================ */
+
+.relax-section {
+  background-color: #7a5a3a;
+  padding: 6rem 0;
+  margin-top: 6rem;
+}
+
+.relax-container {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.relax-text h2 {
+  font-size: 2rem;
+  color: #f7f1e9;
+  margin-bottom: 1.5rem;
+}
+
+.relax-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.relax-text ul li {
+  font-size: 1rem;
+  color: #f7f1e9;
+  margin-bottom: 0.6rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.relax-text ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #f0c48a;
+}
+
+.more-link.light {
+  color: #f0c48a;
+}
+
+.relax-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+}
+
+/* Reszponzív */
+@media (max-width: 900px) {
+  .relax-container {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .relax-image {
+    margin-top: 2rem;
+  }
+}
+
+/* ============================
+   MIÉRT VÁLASZD – FEHÉR, TISZTA HÁTTÉR
+============================ */
+.about-section {
+  background-color: #7a5a3a;
+  padding: 6rem 0;
+  margin-top: 6rem;
+  border-radius: 15px;
+  box-shadow: none; /* eltávolítja a sárgás árnyékot */
+  border: none; /* biztosan ne legyen vékony csík */
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  color: #b68a6b;
+  margin-bottom: 2rem;
+}
+
+.about-text p {
+  font-size: 1.15rem;
+  color: #838383;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.about-text ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 3rem;
+}
+
+.about-text ul li {
+  font-size: 1.15rem;
+  color: #cfcfcf;
+  margin-bottom: 1.2rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.about-text ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #b68a6b;
+  font-size: 1.4rem;
+}
+
+.more-link {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  color: #f8decc;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.more-link:hover {
+  text-decoration: underline;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+
+/* ============================
+   KAPCSOLAT – SÖTÉT BARNA HÁTTÉR
+============================ */
+.contact-section {
+  background-color: #7a5a3a; /* sötétbarna háttér */
+  color: #ffffff;
+  padding: 6rem 0;
+  margin-top: 8rem; /* nagy tér a két szekció között */
+  border-radius: 15px;
+  box-shadow: none; /* ne legyen árnyék, ami csíkot okoz */
+  border: none;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-text h2 {
+  font-size: 2rem;
+  color: #f0c48a;
+  margin-bottom: 1rem;
+}
+
+.contact-text p {
+  font-size: 1rem;
+  color: #f7f1e9;
+  margin-bottom: 1.5rem;
+}
+
+.contact-text ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.contact-text ul li {
+  font-size: 1rem;
+  color: #f7f1e9;
+  margin-bottom: 0.5rem;
+}
+
+.contact-map {
+  border: 0.5rem solid #000000;
+  border-radius: 15px;
+  padding: 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  display: block;
+}
+
+
+/* ============================
+   MOBIL NÉZET
+============================ */
+@media (max-width: 900px) {
+  .about-container,
+  .contact-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-image,
+  .contact-map {
+    margin-top: 2rem;
+  }
+}
+
+
+/* ============================
+   VÉLEMÉNYEZŐ SZEKCIÓ
+============================ */
+
+.review-section {
+  background-color: #f7f1e9;
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.review-section h2 {
+  font-size: 2rem;
+  color: #b68a6b;
+  margin-bottom: 1rem;
+}
+
+.review-section p {
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.review-form input[type="text"],
+.review-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+.review-form textarea {
+  resize: none;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.stars input {
+  display: none;
+}
+
+.stars label {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.stars input:checked ~ label {
+  color: #b68a6b;
+}
+
+.stars label:hover,
+.stars label:hover ~ label {
+  color: #d4a67a;
+}
+
+.review-form .btn {
+  background-color: #b68a6b;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.review-form .btn:hover {
+  background-color: #a57857;
+}
+
+/* Fekete box a véleményekhez */
+.review-box {
+  background-color: #1a1a1a;
+  color: #f7f1e9;
+  margin-top: 4rem;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.review-box h3 {
+  color: #f0c48a;
+  margin-bottom: 2rem;
+}
+
+/* Egy vélemény blokk */
+.review-item {
+  padding: 1.8rem 0;
+  text-align: left;
+  border-bottom: none; /* már nem kell, mert buborék van */
+}
+
+/* Buborék a vélemény körül */
+.review-bubble {
+  background-color: #2a2a2a; /* sötétszürke buborék */
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border: 1px solid #3a3a3a;
+  margin-bottom: 2rem;
+}
+
+/* Név */
+.review-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f0c48a;
+  margin-bottom: 0.6rem;
+}
+
+/* Csillagok */
+.review-stars {
+  font-size: 1.5rem;
+  color: #ffdd88;
+  margin-bottom: 0.8rem;
+  letter-spacing: 3px;
+}
+
+/* Vélemény szöveg */
+.review-text {
+  font-size: 1.15rem;
+  color: #e8e8e8;
+  line-height: 1.7;
+}
+
+/* Dátum a buborék alján */
+.review-date {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #b5b5b5; /* halvány szürke */
+  text-align: right;
+  font-style: italic;
+}
+
+/* Vélemény beküldő form */
+.review-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* A teljes fehér vélemény beküldő rész */
+.review-section {
+  border-radius: 15px;
+  background-color: #ffffff;
+  padding: 6rem 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+/* Buborék */
+.review-bubble {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border: 1px solid #3a3a3a;
+  margin-bottom: 2rem;
+  position: relative; /* kell az X gombhoz */
+}
+
+/* Admin törlőgomb */
+.delete-review {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #b32626;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.delete-review:hover {
+  background-color: #d63a3a;
+}
+
+/* Dátum */
+.review-date {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #b5b5b5;
+  text-align: right;
+  font-style: italic;
+}
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.85);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.cookie-box {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  text-align: left;
+}
+
+.cookie-options label {
+  display: block;
+  margin: 0.6rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.cookie-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.cookie-btn {
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
+
+.cookie-btn.accept {
+  background: #4caf50;
+  color: white;
+}
+
+.cookie-btn.save {
+  background: #b68a6b;
+  color: white;
+}
+
+.cookie-btn.reject {
+  background: #b32626;
+  color: white;
+}
+
+.cookie-link {
+  display: block;
+  margin-top: 1rem;
+  color: #555;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+/* ====== ALAP BEÁLLÍTÁSOK ====== */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #f7f1e9;
+  font-family: Arial, sans-serif;
+}
+
+/* ====== FEJLÉC ====== */
+.header {
+  background-color: #111;
+  padding: 20px 0;
+  border-bottom: 2px solid #f0c48a;
+}
+
+.header-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #f0c48a;
+}
+
+/* ====== MENÜ ====== */
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
+
+.nav ul li a {
+  color: #f7f1e9;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nav ul li a:hover,
+.nav ul li a.active {
+  color: #f0c48a;
+}
+
+/* Admin fül */
+#admin a {
+  color: #ff4444;
+  font-weight: bold;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 60px;
+  background: #2a2a2a;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-textbox {
+  flex: 1 1 500px;
+}
+
+.about-imagebox {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
+}
+
+.about-title {
+  font-size: 42px;
+  color: #f0c48a;
+  margin-bottom: 30px;
+}
+
+.about-text {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #e8e0d4;
+  margin-bottom: 25px;
+}
+
+.about-highlight {
+  color: #f0c48a;
+  font-weight: bold;
+}
+
+.about-wrapper {
+  max-width: 1400px;
+  margin: 100px auto;
+  padding: 60px 80px;
+  background: #2a2a2a;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.about-textbox {
+  flex: 1 1 600px;
+}
+
+.about-imagebox {
+  flex: 1 1 500px;
+  text-align: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(240,196,138,0.4);
+}
+
+.about-title {
+  font-size: 46px;
+  color: #f0c48a;
+  margin-bottom: 40px;
+}
+
+.about-text {
+  font-size: 20px;
+  line-height: 1.9;
+  color: #e8e0d4;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.about-highlight {
+  color: #f0c48a;
+  font-weight: bold;
+}
+
+/* Mobilnézet */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image {
+    max-width: 100%;
+  }
+
+  .about-wrapper {
+    padding: 40px 20px;
+  }
+}
+
+.services-wrapper {
+  max-width: 1400px;
+  margin: 100px auto;
+  padding: 40px 60px;
+  background: #2a2a2a;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+.services-title {
+  text-align: center;
+  font-size: 46px;
+  color: #f0c48a;
+  margin-bottom: 60px;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.service-card {
+  flex: 1 1 380px;
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(240,196,138,0.4);
+}
+
+.service-card h2 {
+  font-size: 28px;
+  color: #f0c48a;
+  margin-bottom: 15px;
+}
+
+.service-price {
+  font-size: 22px;
+  color: #e8e0d4;
+  margin-bottom: 20px;
+}
+
+.service-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.service-card ul li {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #dcd2c2;
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+  .services-wrapper {
+    padding: 20px;
+  }
+
+  .services-container {
+    flex-direction: column;
+  }
+}
+
+
+.booking-wrapper {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 40px 60px;
+  background: #2a2a2a;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+.booking-title {
+  text-align: center;
+  font-size: 42px;
+  color: #f0c48a;
+  margin-bottom: 40px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-form input[type="text"],
+.booking-form input[type="email"],
+.booking-form input[type="date"] {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #1f1f1f;
+  color: #f7f1e9;
+  font-size: 18px;
+}
+
+.package-options label {
+  display: block;
+  margin: 8px 0;
+  font-size: 20px;
+  color: #e8e0d4;
+}
+
+.booking-btn {
+  padding: 15px;
+  background: #f0c48a;
+  color: #1a1a1a;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.booking-btn:hover {
+  background: #ffdd9e;
+}
+
+.booking-result {
+  margin-top: 30px;
+  font-size: 22px;
+  color: #f0c48a;
+  text-align: center;
+}
+
+.back-to-services {
+  max-width: 800px;
+  margin: 40px auto 0 auto;
+  text-align: left;
+}
+
+.back-to-services a {
+  color: #f0c48a;
+  font-size: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.back-to-services a:hover {
+  color: #ffdd9e;
+}
+.back-to-services-inline {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.back-to-services-inline a {
+  color: #f0c48a;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.back-to-services-inline a:hover {
+  color: #ffdd9e;
+}
+
+
+.total-price {
+  text-align: center;
+  font-size: 24px;
+  color: #f0c48a;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+#guests {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #1f1f1f;
+  color: #f7f1e9;
+  font-size: 18px;
+  width: 100px;
+  margin-bottom: 20px;
+}
+.total-price {
+  text-align: center;
+  font-size: 24px;
+  color: #f0c48a;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+
+/* ============================
+   NAVBAR / FEJLÉC
+============================ */
+
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #b68a6b;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  color: #b68a6b;
+}
+
+.nav-links .active {
+  color: #b68a6b;
+  font-weight: 600;
+}
+
+
+
+/* ============================
+   FŐ CÍM (ugyanaz mint foglalás)
+============================ */
+
+.booking-header {
+  text-align: center;
+  padding: 4rem 0 2rem;
+  background-color: #f7f1e9;
+}
+
+.booking-header h1 {
+  font-size: 2.5rem;
+  color: #b68a6b;
+  margin-bottom: 0.5rem;
+}
+
+.booking-header p {
+  color: #444;
+  font-size: 1.1rem;
+}
+
+/* ============================
+   KAPCSOLAT FORM (foglalás stílus)
+============================ */
+
+.booking-section {
+  padding: 3rem 0;
+  background-color: #fff;
+}
+
+.booking-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fdf8f3;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.booking-container h2 {
+  color: #b68a6b;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.booking-container label {
+  font-weight: 600;
+  color: #444;
+}
+
+.booking-container input,
+.booking-container textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.booking-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #b68a6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.booking-btn:hover {
+  background-color: #a67c52;
+}
+
+.result-text {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #444;
+  font-size: 1.1rem;
+}
+
+/* ============================
+   LÁBLÉC
+============================ */
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  background-color: #f7f1e9;
+  color: #444;
+  margin-top: 3rem;
+}
+
+/* ============================
+   KÉP ALATTI FELIRAT (RÓLUNK OLDAL)
+============================ */
+
+.image-caption {
+  text-align: center;
+  color: #bfbfbf; /* világos szürke, jól látható, de nem feltűnő */
+  font-size: 0.95rem;
+  margin-top: 0.8rem;
+  letter-spacing: 0.5px;
+}
+.image-caption {
+  text-align: center;
+  color: #bfbfbf; /* világos szürke, elegáns */
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  letter-spacing: 0.4px;
+}
+
